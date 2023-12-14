@@ -1,0 +1,53 @@
+@model IEnumerable<FRANCISCO_IGOR.Models.PagamentoComCartao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Índice</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDoCartao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bandeira)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeDoCobrado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InformacoesAdicionais)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDoCartao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bandeira)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoCobrado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InformacoesAdicionais)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
